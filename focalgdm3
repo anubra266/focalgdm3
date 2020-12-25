@@ -2,17 +2,8 @@
 
 codename=$(cat /etc/os-release | grep UBUNTU_CODENAME | cut -d = -f 2)
 
-if [ "$codename" == "focal" ]
-then
 source="/usr/share/gnome-shell/theme/Yaru/gnome-shell-theme.gresource"
-else
-echo "
-----------------------------------------
-Sorry, Script is only for Ubuntu 20.04
-Exiting...
-----------------------------------------"
-exit 1
-fi
+
 
 pkg=$(dpkg -l | grep libglib2.0-dev >/dev/null && echo "yes" || echo "no")
 if [ "$pkg" == "no" ]
